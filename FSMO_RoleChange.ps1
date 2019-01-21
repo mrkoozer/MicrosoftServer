@@ -1,6 +1,6 @@
 
 
-$srvName = “ACD-DEVDC-01”
+$srvName = “servername”
 
 NetDOM /query FSMO
 
@@ -15,7 +15,8 @@ NetDOM /query FSMO
 Move-ADDirectoryServerOperationMasterRole -Identity $srvName –OperationMasterRole 0
 Move-ADDirectoryServerOperationMasterRole -Identity $srvName –OperationMasterRole 1
 Move-ADDirectoryServerOperationMasterRole -Identity $srvName –OperationMasterRole 2
-Move-ADDirectoryServerOperationMasterRole -Identity $srvName –OperationMasterRole 3
+# Ops Role 3 should not be required if ops role 2 is implemented
+# Move-ADDirectoryServerOperationMasterRole -Identity $srvName –OperationMasterRole 3
 Move-ADDirectoryServerOperationMasterRole -Identity $srvName –OperationMasterRole 4
 
 NetDOM /query FSMO
